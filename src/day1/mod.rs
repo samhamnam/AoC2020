@@ -28,7 +28,7 @@ pub fn run() {
         }
     }
 
-    println!("\n PART 2:");
+    println!("\nPART 2:");
     for i in 0..input.len() {
         for j in 0..input.len() {
             for k in 0..input.len() {
@@ -40,4 +40,5 @@ pub fn run() {
             }
         }
     }
+    println!("\n");
 }

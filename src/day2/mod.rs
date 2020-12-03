@@ -61,7 +61,7 @@ pub fn run() {
     }
     println!("Valid passwords: {}", total_amount);
 
-    println!("\n\nPART 2:");
+    println!("\nPART 2:");
     let mut total_amount = 0;
     for p in passwords {
         let split: Vec<&str> = p.pass.split("").collect();
@@ -73,16 +73,16 @@ pub fn run() {
         let l2 = split[max];
 
         if l1 == p.letter && l2 != p.letter || l2 == p.letter && l1 != p.letter {
-            println!("{}-{} {}: {}", p.min, p.max, p.letter, p.pass);
+            /*println!("{}-{} {}: {}", p.min, p.max, p.letter, p.pass);
             println!(
                 "{} {} | {} {}\n",
                 l1,
                 l2,
                 l1 == p.letter && l2 != p.letter,
                 l2 == p.letter && l1 != p.letter
-            );
+            );*/
             total_amount += 1;
         }
     }
-    println!("Valid passwords: {}", total_amount);
+    println!("Valid passwords: {}\n\n", total_amount);
 }
