@@ -4,8 +4,6 @@ use std::io::prelude::*;
 #[allow(dead_code)]
 pub fn run() {
     println!("-------- Day 1 --------");
-    println!("PART 1:");
-
     let input = {
         let mut file = File::open("src/day1/input.txt").expect("Failed to open input!");
         let mut content = String::new();
@@ -18,27 +16,27 @@ pub fn run() {
         }
         numbers
     };
+
+    let mut ans = 0;
     for i in 0..input.len() {
         for j in 0..input.len() {
             let val = input[i] + input[j];
-            let pro = input[i] * input[j];
             if val == 2020 {
-                println!("{} + {}: {}", input[i], input[j], pro);
+                ans = input[i] * input[j];
             }
         }
     }
+    println!("PART 1: Product: {}", ans);
 
-    println!("\nPART 2:");
     for i in 0..input.len() {
         for j in 0..input.len() {
             for k in 0..input.len() {
                 let val = input[i] + input[j] + input[k];
                 if val == 2020 {
-                    let pro = input[i] * input[j] * input[k];
-                    println!("{} + {} + {}: {}", input[i], input[j], input[k], pro);
+                    ans = input[i] * input[j] * input[k];
                 }
             }
         }
     }
-    println!("\n");
+    println!("PART 2: Product: {}\n\n", ans);
 }
