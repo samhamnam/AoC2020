@@ -38,5 +38,5 @@ pub fn run() {
             }
         }
     }
-    println!("PART 2: Product: {}\n\n", ans);
+    println!("PART 2: Product: {}\n", ans);
 }

@@ -74,5 +74,5 @@ pub fn run() {
             total_amount += 1;
         }
     }
-    println!("PART 2: Valid passwords: {}\n\n", total_amount);
+    println!("PART 2: Valid passwords: {}\n", total_amount);
 }

@@ -175,7 +175,7 @@ pub fn run() {
             valid += 1;
         }
     }
-    println!("PART 2: Valid passes: {}\n\n", valid);
+    println!("PART 2: Valid passes: {}\n", valid);
 }
 
 fn split_length(length: &str) -> Option<(i32, String)> {

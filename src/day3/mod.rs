@@ -28,7 +28,7 @@ pub fn run() {
     new_trees *= trees_hit(5, 1, &coords);
     new_trees *= trees_hit(7, 1, &coords);
     new_trees *= trees_hit(1, 2, &coords);
-    println!("PART 2: Trees: {}\n\n", new_trees);
+    println!("PART 2: Trees: {}\n", new_trees);
 }
 
 fn trees_hit(x_offset: usize, y_offset: usize, map: &Vec<Vec<char>>) -> i64 {
