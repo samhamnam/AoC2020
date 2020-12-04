@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 
+#[allow(dead_code)]
 pub fn run() {
     // Loads the map
     println!("-------- Day 3 --------");
