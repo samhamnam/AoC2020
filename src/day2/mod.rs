@@ -11,18 +11,23 @@ struct Password {
 
 #[allow(dead_code)]
 pub fn run() {
+    println!("-------- Day 2 --------");
+
     let passwords = {
+        // Loads the input, reads it to a string and then splits it at each newline.
         let mut file = File::open("src/day2/input.txt").expect("Failed to open input!");
         let mut file_string = String::new();
         file.read_to_string(&mut file_string)
             .expect("Failed to read");
         let rows: Vec<&str> = file_string.split("\n").collect();
 
+        // Creates an empty Password Vector
         let mut passwords = Vec::new();
 
         for r in rows {
             let parts: Vec<&str> = r.split(" ").collect();
 
+            // Splits the row gathering all the data about the password.
             let (min, max) = {
                 let text: Vec<&str> = parts[0].split("-").collect();
                 (
@@ -33,6 +38,7 @@ pub fn run() {
             let letter = parts[1].split(":").collect::<Vec<&str>>()[0].to_owned();
             let pass = parts[2].to_owned();
 
+            // Push a Password instance containing the password data to the Vector created above.
             passwords.push(Password {
                 min,
                 max,
@@ -43,8 +49,7 @@ pub fn run() {
         passwords
     };
 
-    println!("-------- Day 2 --------");
-    let mut total_amount = 0;
+    let mut valid_amount = 0;
     for p in passwords.clone() {
         let split: Vec<&str> = p.pass.split("").collect();
         let mut amount = 0;
@@ -55,12 +60,12 @@ pub fn run() {
         }
 
         if amount >= p.min && amount <= p.max {
-            total_amount += 1;
+            valid_amount += 1;
         }
     }
-    println!("PART 1: Valid passwords: {}", total_amount);
+    println!("PART 1: Valid passwords: {}", valid_amount);
 
-    let mut total_amount = 0;
+    let mut valid_amount_2 = 0;
     for p in passwords {
         let split: Vec<&str> = p.pass.split("").collect();
 
@@ -71,8 +76,8 @@ pub fn run() {
         let l2 = split[max];
 
         if l1 == p.letter && l2 != p.letter || l2 == p.letter && l1 != p.letter {
-            total_amount += 1;
+            valid_amount_2 += 1;
         }
     }
-    println!("PART 2: Valid passwords: {}\n", total_amount);
+    println!("PART 2: Valid passwords: {}\n", valid_amount_2);
 }

@@ -1,6 +1,38 @@
 use std::fs::File;
 use std::io::prelude::*;
 
+// Splits a length into (length, unit), "421cm" -> (421, "cm") etc.
+fn split_length(length: &str) -> Option<(i32, String)> {
+    let s: Vec<char> = length.chars().collect();
+
+    let mut t: String = "".to_owned();
+    if s[s.len() - 1] == 'm' {
+        t = "cm".to_owned();
+    } else if s[s.len() - 1] == 'n' {
+        t = "in".to_owned()
+    };
+
+    let numbers = "1234567890".to_owned();
+    let mut number_array = Vec::new();
+    for c in s {
+        if numbers.contains(c) {
+            number_array.push(c)
+        }
+    }
+
+    let n = number_array
+        .iter()
+        .collect::<String>()
+        .parse::<i32>()
+        .expect("Failed to parse!");
+
+    if t == "" {
+        None
+    } else {
+        Some((n, t))
+    }
+}
+
 #[derive(Clone)]
 struct Passport {
     byr: Option<i32>,
@@ -14,6 +46,7 @@ struct Passport {
 
 impl Passport {
     pub fn valid(&self) -> bool {
+        // Just checks if no member is equal to None, which would make it invalid
         self.byr != None
             && self.iyr != None
             && self.eyr != None
@@ -23,7 +56,7 @@ impl Passport {
             && self.pid != None
     }
 
-    pub fn valid_extreme(&self) -> bool {
+    pub fn valid_p2(&self) -> bool {
         if self.valid() {
             let byr = self.byr.unwrap();
             let iyr = self.iyr.unwrap();
@@ -171,40 +204,9 @@ pub fn run() {
 
     valid = 0;
     for p in passports {
-        if p.valid_extreme() {
+        if p.valid_p2() {
             valid += 1;
         }
     }
     println!("PART 2: Valid passes: {}\n", valid);
-}
-
-fn split_length(length: &str) -> Option<(i32, String)> {
-    let s: Vec<char> = length.chars().collect();
-
-    let mut t: String = "".to_owned();
-    if s[s.len() - 1] == 'm' {
-        t = "cm".to_owned();
-    } else if s[s.len() - 1] == 'n' {
-        t = "in".to_owned()
-    };
-
-    let numbers = "1234567890".to_owned();
-    let mut number_array = Vec::new();
-    for c in s {
-        if numbers.contains(c) {
-            number_array.push(c)
-        }
-    }
-
-    let n = number_array
-        .iter()
-        .collect::<String>()
-        .parse::<i32>()
-        .expect("Failed to parse!");
-
-    if t == "" {
-        None
-    } else {
-        Some((n, t))
-    }
 }
