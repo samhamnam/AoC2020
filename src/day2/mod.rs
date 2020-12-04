@@ -44,7 +44,6 @@ pub fn run() {
     };
 
     println!("-------- Day 2 --------");
-    println!("PART 1:");
     let mut total_amount = 0;
     for p in passwords.clone() {
         let split: Vec<&str> = p.pass.split("").collect();
@@ -59,9 +58,8 @@ pub fn run() {
             total_amount += 1;
         }
     }
-    println!("Valid passwords: {}", total_amount);
+    println!("PART 1: Valid passwords: {}", total_amount);
 
-    println!("\nPART 2:");
     let mut total_amount = 0;
     for p in passwords {
         let split: Vec<&str> = p.pass.split("").collect();
@@ -73,16 +71,8 @@ pub fn run() {
         let l2 = split[max];
 
         if l1 == p.letter && l2 != p.letter || l2 == p.letter && l1 != p.letter {
-            /*println!("{}-{} {}: {}", p.min, p.max, p.letter, p.pass);
-            println!(
-                "{} {} | {} {}\n",
-                l1,
-                l2,
-                l1 == p.letter && l2 != p.letter,
-                l2 == p.letter && l1 != p.letter
-            );*/
             total_amount += 1;
         }
     }
-    println!("Valid passwords: {}\n\n", total_amount);
+    println!("PART 2: Valid passwords: {}\n\n", total_amount);
 }

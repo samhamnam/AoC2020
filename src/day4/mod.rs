@@ -163,19 +163,6 @@ pub fn run() {
 
     let mut valid = 0;
     for p in passports.clone() {
-        /*println!(
-            "{}: {:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?}\n----------",
-            p.valid(),
-            p.byr,
-            p.iyr,
-            p.eyr,
-            p.hgt,
-            p.hcl,
-            p.ecl,
-            p.pid,
-            p.cid
-        );*/
-
         if p.valid() {
             valid += 1;
         }
@@ -186,19 +173,7 @@ pub fn run() {
     for p in passports {
         if p.valid_extreme() {
             valid += 1;
-        } /*else {
-              println!(
-                    "{}: BYR:{:?} | IYR:{:?} | EYR:{:?} | HGT:{:?} | HCL:{:?} | ECL:{:?} | PID:{:?}\n----------",
-                    p.valid_extreme(),
-                    p.byr,
-                    p.iyr,
-                    p.eyr,
-                    p.hgt,
-                    p.hcl,
-                    p.ecl,
-                    p.pid
-                );
-          }*/
+        }
     }
     println!("PART 2: Valid passes: {}\n\n", valid);
 }
