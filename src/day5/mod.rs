@@ -49,7 +49,6 @@ fn split_vec<T: Clone + std::fmt::Debug>(vec: Vec<T>, right: bool) -> Vec<T> {
     let chunks = vec
         .chunks((vec.len() + 1) / 2)
         .map(|x| x.to_vec())
-        .map(|x| x.to_vec())
         .collect::<Vec<Vec<T>>>();
 
     chunks[right as usize].clone()
