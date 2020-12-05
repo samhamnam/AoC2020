@@ -138,6 +138,7 @@ impl Passport {
     }
 }
 
+#[allow(dead_code)]
 pub fn run() {
     println!("-------- Day 4 --------");
 
