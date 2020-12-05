@@ -12,13 +12,7 @@ pub fn run() {
         split
     };
 
-    let mut ids: Vec<i32> = passes
-        .iter()
-        .map(|p| {
-            let i = find_seat(&p).2;
-            i
-        })
-        .collect();
+    let mut ids: Vec<i32> = passes.iter().map(|p| find_seat_id(&p)).collect();
 
     ids.sort();
 
@@ -33,7 +27,7 @@ pub fn run() {
     }
 }
 
-fn find_seat(seat: &str) -> (i32, i32, i32) {
+fn find_seat_id(seat: &str) -> i32 {
     let split: Vec<char> = seat.chars().collect();
     let mut rows: Vec<i32> = (0..127).collect();
     let mut collumns: Vec<i32> = (0..8).collect();
@@ -48,7 +42,7 @@ fn find_seat(seat: &str) -> (i32, i32, i32) {
         }
     }
 
-    (rows[0], collumns[0], rows[0] * 8 + collumns[0])
+    rows[0] * 8 + collumns[0]
 }
 
 fn split_vec<T: Clone + std::fmt::Debug>(vec: Vec<T>, right: bool) -> Vec<T> {
