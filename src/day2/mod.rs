@@ -1,5 +1,4 @@
-use std::fs::File;
-use std::io::prelude::*;
+use crate::lib::load_input;
 
 #[derive(Clone)]
 struct Password {
@@ -14,11 +13,7 @@ pub fn run() {
     println!("-------- Day 2 --------");
 
     let passwords = {
-        // Loads the input, reads it to a string and then splits it at each newline.
-        let mut file = File::open("src/day2/input.txt").expect("Failed to open input!");
-        let mut file_string = String::new();
-        file.read_to_string(&mut file_string)
-            .expect("Failed to read");
+        let file_string = load_input("src/day2/input.txt");
         let rows: Vec<&str> = file_string.split("\n").collect();
 
         // Creates an empty Password Vector

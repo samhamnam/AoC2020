@@ -1,5 +1,4 @@
-use std::fs::File;
-use std::io::prelude::*;
+use crate::lib::load_input;
 
 fn trees_hit(x_offset: usize, y_offset: usize, map: &Vec<Vec<char>>) -> i64 {
     let mut x = 0;
@@ -21,10 +20,7 @@ pub fn run() {
 
     // Reads the input and converts it into a 2D char vector.
     let coords = {
-        let mut file = File::open("src/day3/input.txt").expect("Failed to open input!");
-        let mut file_string = String::new();
-        file.read_to_string(&mut file_string)
-            .expect("Failed to read");
+        let file_string = load_input("src/day3/input.txt");
         let rows_string: Vec<String> = file_string.split("\n").map(|s| s.to_string()).collect();
 
         let mut rows = Vec::new();

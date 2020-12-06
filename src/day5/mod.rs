@@ -1,13 +1,10 @@
-use std::fs::File;
-use std::io::prelude::*;
+use crate::lib::load_input;
 
 #[allow(dead_code)]
 pub fn run() {
     println!("-------- Day 5 --------");
     let passes = {
-        let mut file = File::open("src/day5/input.txt").expect("Failed to open input file!.");
-        let mut string = String::new();
-        file.read_to_string(&mut string).expect("Failed to read file to string!");
+        let string = load_input("src/day5/input.txt");
         let split: Vec<String> = string.split("\n").map(|s| s.to_string()).collect();
         split
     };

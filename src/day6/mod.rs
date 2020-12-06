@@ -1,14 +1,10 @@
-use std::fs::File;
-use std::io::prelude::*;
+use crate::lib::load_input;
 
 pub fn run() {
     println!("-------- Day 6 --------");
 
     let groups = {
-        let mut f = File::open("src/day6/input.txt").expect("Failed to open input!");
-        let mut s = String::new();
-        f.read_to_string(&mut s).expect("Failed to load to string!");
-
+        let s = load_input("src/day6/input.txt");
         create_groups(s)
     };
 

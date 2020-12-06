@@ -1,5 +1,4 @@
-use std::fs::File;
-use std::io::prelude::*;
+use crate::lib::load_input;
 
 // Splits a length into (length, unit), "421cm" -> (421, "cm") etc.
 fn split_length(length: &str) -> Option<(i32, String)> {
@@ -143,10 +142,7 @@ pub fn run() {
     println!("-------- Day 4 --------");
 
     let passports = {
-        let mut file = File::open("src/day4/input.txt").expect("Failed to read input!");
-        let mut file_string = String::new();
-        file.read_to_string(&mut file_string)
-            .expect("Failed to read string!");
+        let file_string = load_input("src/day4/input.txt");
 
         let mut split_data: Vec<String> =
             file_string.split("\n\n").map(|s| s.to_string()).collect();

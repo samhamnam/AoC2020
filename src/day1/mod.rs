@@ -1,14 +1,10 @@
-use std::fs::File;
-use std::io::prelude::*;
+use crate::lib::load_input;
 
 #[allow(dead_code)]
 pub fn run() {
     println!("-------- Day 1 --------");
     let input = {
-        // Loads the input and reads it to the string content.
-        let mut file = File::open("src/day1/input.txt").expect("Failed to open input!");
-        let mut content = String::new();
-        file.read_to_string(&mut content).expect("Failed to read!");
+        let content = load_input("src/day1/input.txt");
 
         // Splits the string at each newline and parses all numbers to i64.
         let strings: Vec<&str> = content.split("\n").collect();
