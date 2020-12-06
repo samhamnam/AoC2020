@@ -20,7 +20,7 @@ pub fn run() {
 
     // Reads the input and converts it into a 2D char vector.
     let coords = {
-        let file_string = load_input("src/day3/input.txt");
+        let file_string = load_input("input/day3");
         let rows_string: Vec<String> = file_string.split("\n").map(|s| s.to_string()).collect();
 
         let mut rows = Vec::new();

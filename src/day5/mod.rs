@@ -4,7 +4,7 @@ use crate::lib::load_input;
 pub fn run() {
     println!("-------- Day 5 --------");
     let passes = {
-        let string = load_input("src/day5/input.txt");
+        let string = load_input("input/day5");
         let split: Vec<String> = string.split("\n").map(|s| s.to_string()).collect();
         split
     };

@@ -142,7 +142,7 @@ pub fn run() {
     println!("-------- Day 4 --------");
 
     let passports = {
-        let file_string = load_input("src/day4/input.txt");
+        let file_string = load_input("input/day4");
 
         let mut split_data: Vec<String> =
             file_string.split("\n\n").map(|s| s.to_string()).collect();

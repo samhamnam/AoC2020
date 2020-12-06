@@ -4,7 +4,7 @@ use crate::lib::load_input;
 pub fn run() {
     println!("-------- Day 1 --------");
     let input = {
-        let content = load_input("src/day1/input.txt");
+        let content = load_input("input/day1");
 
         // Splits the string at each newline and parses all numbers to i64.
         let strings: Vec<&str> = content.split("\n").collect();

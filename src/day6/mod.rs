@@ -4,7 +4,7 @@ pub fn run() {
     println!("-------- Day 6 --------");
 
     let groups = {
-        let s = load_input("src/day6/input.txt");
+        let s = load_input("input/day6");
         create_groups(s)
     };
 

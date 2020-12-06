@@ -13,7 +13,7 @@ pub fn run() {
     println!("-------- Day 2 --------");
 
     let passwords = {
-        let file_string = load_input("src/day2/input.txt");
+        let file_string = load_input("input/day2");
         let rows: Vec<&str> = file_string.split("\n").collect();
 
         // Creates an empty Password Vector
