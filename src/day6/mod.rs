@@ -1,5 +1,6 @@
 use crate::lib::load_input;
 
+#[allow(dead_code)]
 pub fn run() {
     println!("-------- Day 6 --------");
 
