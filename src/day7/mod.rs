@@ -104,7 +104,7 @@ fn part2(bag: String, rules: Vec<(String, Vec<(i32, String)>)>) -> usize {
 
     let mut ans = vec![bag.clone()];
     let mut amount = 0;
-    for _ in 0..10 {
+    loop {
         let new_ans = recurse(ans.clone(), rules.clone());
         amount += new_ans.len();
         if new_ans.len() != 0 {
