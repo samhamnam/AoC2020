@@ -48,7 +48,10 @@ fn part_one(groups: Vec<String>) {
         .iter()
         .map(|v| v.iter().map(|s| s.to_owned()).collect())
         .collect();
-    let clean: Vec<String> = groups.iter().map(|s| remove_dupes(s.clone())).collect();
+    let clean: Vec<String> = groups
+        .iter()
+        .map(|s| remove_dupes_sort(s.clone()))
+        .collect();
     let count = {
         let mut count = 0;
         for s in clean {
@@ -65,14 +68,10 @@ fn create_groups(s: String) -> Vec<String> {
     groups
 }
 
-fn remove_dupes(string: String) -> String {
-    let chars: Vec<char> = string.chars().collect();
-    let mut clean = String::new();
+fn remove_dupes_sort(string: String) -> String {
+    let mut chars: Vec<char> = string.chars().collect();
+    chars.sort();
+    chars.dedup();
 
-    for c in chars {
-        if !clean.contains(c) {
-            clean.push(c);
-        }
-    }
-    clean
+    chars.iter().collect::<String>()
 }
