@@ -23,7 +23,7 @@ pub fn run() {
 
     let part2 = part2(bag[0].clone(), rules);
     println!(
-        "Part 2: Amount of bags that \"shiny gold\" hold: {:?}",
+        "Part 2: Amount of bags that \"shiny gold\" hold: {:?}\n",
         part2
     )
 }
